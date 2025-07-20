@@ -6,22 +6,21 @@ services:
     container_name: train-app
     ports:
       - "8080:8080"
-    depends_on:
-      - db
     environment:
       SPRING_PROFILES_ACTIVE: prod
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/train
+      SPRING_DATASOURCE_URL: jdbc:mysql://containers-us-west-97.railway.app:3306/railway
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: ASDzxc123#
+      SPRING_DATASOURCE_PASSWORD: jGDHzeCPPdspTtMzarBrQJtTELNbjPcQ
     networks:
       - app-network
+
 
   db:
     image: mysql:8.0.1
     container_name: mysql-database
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ASDzxc123#
+      MYSQL_ROOT_PASSWORD: jGDHzeCPPdspTtMzarBrQJtTELNbjPcQ
       MYSQL_DATABASE: train
     ports:
       - "3309:3306"
